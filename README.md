@@ -1,2 +1,2 @@
-# Ersin-Hocan-n-devleri
+# Ersin-Hocanın-ödevleri
 Ödevlerim
