@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Karakter seti: Türkçe karakterler düzgün görünsün -->
+    <meta charset="UTF-8">
+
+    <!-- Sayfanın mobil uyumlu olmasını sağlar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tarayıcı sekmesinde görünen başlık -->
+    <title>Favori Yemek Tarifim</title>
+
+    <!-- Basit stil tanımları -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #8b0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #8b0000;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #ddd;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #8b0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sayfanın üst kısmı (başlık, tanıtım) -->
+    <header>
+        <h1>İskender Kebap</h1>
+        <p>En sevdiğim yemek tarifi</p>
+    </header>
+
+    <!-- Sayfanın ana içeriği -->
+    <main>
+
+        <!-- İçeriği mantıksal olarak ayırmak için section -->
+        <section>
+
+            <!-- Bağımsız içerik bloğu -->
+            <article>
+
+                <!-- Yemek fotoğrafı -->
+                <!-- src: görselin internet adresi -->
+                <!-- alt: görsel yüklenmezse açıklama + erişilebilirlik -->
+                <img 
+                    src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"
+                    alt="İskender kebap fotoğrafı">
+
+                <!-- Malzemeler başlığı -->
+                <h2>Malzemeler</h2>
+
+                <!-- Sırasız liste -->
+                <ul>
+                    <li>Döner et</li>
+                    <li>Pide</li>
+                    <li>Yoğurt</li>
+                    <li>Tereyağı</li>
+                    <li>Domates sosu</li>
+                </ul>
+
+                <!-- Yapılış başlığı -->
+                <h2>Yapılışı</h2>
+
+                <!-- Sıralı liste -->
+                <ol>
+                    <li>Pideyi küçük parçalar halinde kesin.</li>
+                    <li>Döner eti ısıtın.</li>
+                    <li>Domates sosunu hazırlayın.</li>
+                    <li>Üzerine yoğurt ve tereyağı ekleyin.</li>
+                </ol>
+
+                <!-- Dış bağlantı -->
+                <!-- target="_blank": link yeni sekmede açılır -->
+                <p>
+                    Orijinal tarif için
+                    <a href="https://tr.wikipedia.org/wiki/%C4%B0skender_kebap" target="_blank">
+                        buraya tıklayın
+                    </a>
+                </p>
+
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Sayfanın alt kısmı -->
+    <footer>
+        <p>© 2026 Favori Yemek Tarifim</p>
+    </footer>
+
+</body>
+</html>
