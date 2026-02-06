@@ -57,10 +57,9 @@ footer {
 
 /* Yeni Bio Container Stili */
 .bio-container {
-    width: 80%;
-    /* Karttan daha geniş */
-    max-width: 800px;
-    /* Çok da yayılmasın */
+    width: 98%;
+    /* Kenarlara çok daha yakın */
+    /* max-width kaldırdım, ekranı kaplasın */
     margin: 30px auto;
     /* Ortala */
 }
