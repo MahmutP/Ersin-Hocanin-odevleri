@@ -33,10 +33,11 @@ footer {
 
 /* 3. Profil Resmi */
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
     border: 5px solid #18dcff;
+    box-sizing: border-box;
     /* Neon Blue */
 }
 
