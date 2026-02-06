@@ -1,0 +1,101 @@
+/* Flat UI Turkish Palette Colors kullanılarak güncellendi */
+/* Palette: https://flatuicolors.com/palette/tr */
+
+/* 1. Arka plan ve hizalama */
+body {
+    background-color: #7efff5;
+    /* Electric Blue */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar ve Footer */
+.navbar,
+footer {
+    display: none;
+}
+
+.main-content {
+    padding-top: 50px;
+    text-align: center;
+}
+
+/* 2. Profil Kartı */
+.profile-card {
+    background-color: #fff200;
+    /* Dorn Yellow - Çok cırtlak sarı, tam 'flat' ve 'acemi' */
+    width: 300px;
+    padding: 20px;
+    border: 4px solid #ff3838;
+    /* Red Orange */
+    margin: 0 auto;
+}
+
+/* 3. Profil Resmi */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #18dcff;
+    /* Neon Blue */
+}
+
+/* 4. Tipografi */
+.name {
+    color: #7158e2;
+    /* Light Indigo */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: #3d3d3d;
+    /* Baltic Sea */
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Yeni Bio Container Stili */
+.bio-container {
+    width: 80%;
+    /* Karttan daha geniş */
+    max-width: 800px;
+    /* Çok da yayılmasın */
+    margin: 30px auto;
+    /* Ortala */
+}
+
+.bio-text {
+    border: 2px dashed #cd84f1;
+    /* Bright Lilac */
+    padding: 20px;
+    background-color: #fff;
+    /* White */
+    color: #4b4b4b;
+    /* Shadowed Steel */
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+    /* Okuması kolay olsun */
+}
+
+/* 5. Galeri */
+.gallery-section {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    background-color: #32ff7e;
+    /* Wintergreen */
+    border-top: 5px solid #ffaf40;
+    /* Mandarin Sorbet */
+}
+
+.gallery-img {
+    width: 150px;
+    /* Çok resim var biraz küçültelim */
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid #c56cf0;
+    /* Light Purple */
+    margin: 10px;
+    display: inline-block;
+}
