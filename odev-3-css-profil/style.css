@@ -6,6 +6,10 @@ body {
     /* Elektirik Mavisi */
     margin: 0;
     padding: 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Navbar ve Footer */
@@ -15,7 +19,7 @@ footer {
 }
 
 .main-content {
-    padding-top: 50px;
+    /* Removed padding-top: 50px for proper vertical centering */
     text-align: center;
 }
 
@@ -77,23 +81,38 @@ footer {
     /* Okuması kolay olsun */
 }
 
-/* 5. Galeri */
-.gallery-section {
-    margin-top: 50px;
-    padding-bottom: 50px;
-    background-color: #32ff7e;
-    /* Bu rengin ismi neydi */
-    border-top: 5px solid #ffaf40;
-    /* Bu rengin ismi neydi */
+/* 5. Bio (Kısa) */
+.bio-content {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 2px dashed #000;
+    /* Ayırıcı çizgi */
 }
 
-.gallery-img {
-    width: 150px;
-    /* Çok resim var biraz küçültelim */
-    height: 150px;
-    object-fit: cover;
-    border: 4px solid #c56cf0;
-    /* Bu rengin ismi neydi */
-    margin: 10px;
+.bio-text-short {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bio-link {
     display: inline-block;
+    padding: 8px 15px;
+    background-color: #ff4757;
+    /* Kırmızı ton */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.bio-link:hover {
+    background-color: #ff6b81;
+}
+
+.bio-link i {
+    margin-right: 5px;
 }
