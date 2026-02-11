@@ -4,7 +4,8 @@ import './App.css'
 //Maksimum insan, minumum ai.
 //  - Gemini (Pro)
 // Bu sefer zorlandığım kısım dışında sizin önceden yazdığınız kodları temel
-// ederek yazdım.
+// ederek yazdım. Biraz daha derinlemesine inceleyip daha iyi anlayabilirim.
+// Lakin loginSuccess tamamen yapay zeka fikriyle yazdım. Yeni bir şey öğrendim.
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
