@@ -1,0 +1,263 @@
+/* =========================================
+   TEMEL AYARLAR (RESET)
+   ========================================= */
+* {
+    /* Varsayılan tarayıcı boşluklarını sıfırlıyoruz */
+    margin: 0;
+    padding: 0;
+    /* Kutu modelini değiştiriyoruz: 
+       padding ve border eklediğimizde kutu büyümesin, içine sığsın diye */
+    box-sizing: border-box;
+}
+
+body {
+    /* Yazı tipi ailesi */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Arka plan rengi (hafif gri) */
+    background-color: #f4f7f6;
+    /* Yazı rengi */
+    color: #333;
+    /* Satır yüksekliği (okunabilirlik için) */
+    line-height: 1.6;
+}
+
+/* =========================================
+   HEADER (BAŞLIK) STİLLERİ
+   ========================================= */
+header {
+    /* Yazıları ortala */
+    text-align: center;
+    /* Üstten ve alttan boşluk ver */
+    padding: 2rem 0;
+    /* 1rem yaklaşık 16px */
+    background-color: #2c3e50;
+    /* Koyu lacivert */
+    color: white;
+    margin-bottom: 2rem;
+    /* Kartlarla arasına mesafe koy */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   FİYAT KARTLARI KAPSAYICISI (FLEXBOX)
+   ========================================= */
+.fiyat-container {
+    /* SİHİRLİ DEĞNEK BURADA! */
+    display: flex;
+
+    /* YATAYDA HİZALAMA (Ana Eksen):
+       justify-content: center -> Kartları sayfanın ortasına topla */
+    justify-content: center;
+
+    /* DİKEYDE HİZALAMA (Çapraz Eksen):
+       align-items: center -> Kartların dikey merkezleri aynı hizada olsun */
+    align-items: center;
+
+    /* KARTLAR ARASI BOŞLUK:
+       gap: 2rem -> Kartların arasına 32px (2rem) boşluk koy */
+    gap: 2rem;
+
+    /* ÖNEMLİ: EKRAN KÜÇÜLÜNCE NE OLSUN?
+       flex-wrap: wrap -> Kartlar sığmazsa alt satıra geçsin */
+    flex-wrap: wrap;
+
+    /* Konteynerin maksimum genişliği */
+    max-width: 1200px;
+    /* Sayfada ortalamak için (sağ-sol margin auto) */
+    margin: 0 auto;
+    padding: 0 20px;
+    /* Mobilde kenarlara yapışmasın diye iç boşluk */
+}
+
+/* =========================================
+   GENEL KART STİLLERİ
+   ========================================= */
+.fiyat-karti {
+    background-color: white;
+    /* Köşeleri yuvarlat */
+    border-radius: 10px;
+    /* Hafif gölge ekle (Kart efekti için) */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* İç boşluk */
+    padding: 2rem;
+    /* Yazıları ortala */
+    text-align: center;
+
+    /* GENİŞLİK AYARI:
+       flex: 1 -> Müsait alanı eşit paylaşsınlar ama...
+       min-width: 300px -> Kartlar çok küçülmesin, en az 300px olsun */
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    /* Çok da genişlemesin */
+
+    /* Geçiş efekti (hover durumunda yumuşak büyüsün diye) */
+    transition: transform 0.3s ease;
+
+    /* Konumlandırma: İçindeki 'etiket' (Popüler) için referans noktası */
+    position: relative;
+    border: 1px solid #e1e1e1;
+}
+
+/* Mouse ile üzerine gelince kart biraz yukarı çıksın */
+.fiyat-karti:hover {
+    transform: translateY(-10px);
+    /* Y ekseninde -10px (yukarı) git */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* Gölgeyi büyüt */
+}
+
+/* Fiyat Yazısı Stili */
+.fiyat {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 1rem 0;
+}
+
+.fiyat span {
+    font-size: 1rem;
+    color: #777;
+    font-weight: normal;
+}
+
+/* Liste (ul) Stilleri */
+.fiyat-karti ul {
+    list-style: none;
+    /* Madde işaretlerini kaldır */
+    margin-bottom: 2rem;
+}
+
+.fiyat-karti ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    /* Altına ince çizgi */
+}
+
+/* Son maddenin alt çizgisini kaldır */
+.fiyat-karti ul li:last-child {
+    border-bottom: none;
+}
+
+/* Buton Stilleri */
+.fiyat-karti button {
+    background-color: #3498db;
+    /* Mavi */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    /* Hap şeklinde buton */
+    font-size: 1rem;
+    cursor: pointer;
+    /* Mouse el işareti olsun */
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.fiyat-karti button:hover {
+    background-color: #2980b9;
+    /* Daha koyu mavi */
+}
+
+/* =========================================
+   ÖNE ÇIKAN (PROFESYONEL) KART STİLLERİ
+   ========================================= */
+/* HTML'de 'one-cikan' class'ı verdiğimiz orta kart */
+.one-cikan {
+    /* Kenarlık rengini farklı yapalım */
+    border: 2px solid #3498db;
+    /* Biraz daha büyük görünsün (scale) */
+    transform: scale(1.05);
+    /* Z-index ile diğerlerinin önüne geçsin (eğer çakışırsa) */
+    z-index: 1;
+}
+
+/* Öne çıkan kartın hover durumu (büyüklüğü koruyarak yukarı çıkmalı) */
+.one-cikan:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+/* Sadece öne çıkan karttaki buton rengi farklı olsun */
+.one-cikan button {
+    background-color: #e74c3c;
+    /* Kırmızı */
+}
+
+.one-cikan button:hover {
+    background-color: #c0392b;
+}
+
+/* "Popüler" Etiketi */
+.etiket {
+    position: absolute;
+    /* Karta göre konumlanacak */
+    top: 0;
+    right: 0;
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* Kartın yuvarlak köşesine uysun */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   RESPONSIVE (MOBİL UYUMLULUK)
+   ========================================= */
+/* Ekran genişliği 768px veya daha az ise bu kurallar çalışır */
+@media (max-width: 768px) {
+
+    .fiyat-container {
+        /* YÖNÜ DEĞİŞTİRİYORUZ! */
+        /* Masaüstünde 'row' (yan yana) idi, şimdi 'column' (alt alta) yapıyoruz */
+        flex-direction: column;
+
+        /* Mobilde yan boşlukları biraz azaltabiliriz */
+        padding: 0 10px;
+    }
+
+    .one-cikan {
+        /* Mobilde ölçeklemeyi kaldıralım, hepsi aynı boyda olsun */
+        transform: scale(1);
+        /* Kenar boşluğu ekleyelim ki yapışmasın */
+        margin: 10px 0;
+    }
+
+    /* Mobilde hover efektiyle büyümeyi de sıfırlayabiliriz (isteğe bağlı) */
+    .one-cikan:hover {
+        transform: translateY(-5px);
+        /* Sadece hafif yukarı çıksın, büyümesin */
+    }
+}
+
+/* =========================================
+   DAKTİLO EFEKTİ İÇİN İMLEÇ (CURSOR)
+   ========================================= */
+.typing-header::after {
+    content: '|';
+    /* İmleç karakteri */
+    animation: blink 1s step-end infinite;
+    color: #e74c3c;
+    /* İmleç rengi (Kırmızımsı) */
+    margin-left: 5px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
