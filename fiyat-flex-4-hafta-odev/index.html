@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bu meta etiketi olmadan mobil cihazlarda responsive çalışmaz! -->
+    <!-- width=device-width: Sayfa genişliğini cihazın ekran genişliğine eşitler -->
+    <!-- initial-scale=1.0: Sayfa ilk açıldığında zoom seviyesini %100 yapar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fiyatlandırma Tablosu - Ödev 4</title>
+
+    <!-- Harici CSS dosyamızı bağlıyoruz -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================== -->
+    <!-- ANA BAŞLIK ALANI               -->
+    <!-- ============================== -->
+    <header>
+        <h1 class="typing-header" id="baslik-efekt"></h1>
+        <!-- Altına kısa bir açıklama yazıyoruz -->
+        <p>İhtiyacınıza en uygun planı seçin</p>
+    </header>
+
+    <!-- ============================== -->
+    <!-- FİYAT KARTLARI KAPSAYICISI     -->
+    <!-- ============================== -->
+    <!-- Bu div, Flexbox kapsayıcımız (parent/ebeveyn) olacak -->
+    <!-- İçindeki 3 kart (çocuk elemanlar) bu kapsayıcıya göre hizalanacak -->
+    <div class="fiyat-container">
+
+        <!-- ======= PAKET 1: BAŞLANGIÇ ======= -->
+        <div class="fiyat-karti">
+            <!-- Paket başlığı -->
+            <h2>Başlangıç</h2>
+
+            <!-- Fiyat bilgisi -->
+            <p class="fiyat">₺49<span>/ay</span></p>
+
+            <!-- Paket özellikleri listesi -->
+            <ul>
+                <li>1 Kullanıcı</li>
+                <li>5 GB Depolama</li>
+                <li>E-posta Desteği</li>
+                <li>Temel Özellikler</li>
+            </ul>
+
+            <!-- Satın alma butonu -->
+            <button>Planı Seç</button>
+        </div>
+
+        <!-- ======= PAKET 2: PROFESYONEL (ÖNE ÇIKAN) ======= -->
+        <!-- Bu karta ekstra "one-cikan" class'ı veriyoruz -->
+        <!-- CSS'de bu class'a farklı stil vererek öne çıkaracağız -->
+        <div class="fiyat-karti one-cikan">
+            <!-- Öne çıkan etiketi -->
+            <span class="etiket">Popüler</span>
+
+            <!-- Paket başlığı -->
+            <h2>Profesyonel</h2>
+
+            <!-- Fiyat bilgisi -->
+            <p class="fiyat">₺99<span>/ay</span></p>
+
+            <!-- Paket özellikleri listesi -->
+            <ul>
+                <li>5 Kullanıcı</li>
+                <li>50 GB Depolama</li>
+                <li>Öncelikli Destek</li>
+                <li>Gelişmiş Özellikler</li>
+                <li>API Erişimi</li>
+            </ul>
+
+            <!-- Satın alma butonu -->
+            <button>Planı Seç</button>
+        </div>
+
+        <!-- ======= PAKET 3: KURUMSAL ======= -->
+        <div class="fiyat-karti">
+            <!-- Paket başlığı -->
+            <h2>Kurumsal</h2>
+
+            <!-- Fiyat bilgisi -->
+            <p class="fiyat">₺199<span>/ay</span></p>
+
+            <!-- Paket özellikleri listesi -->
+            <ul>
+                <li>Sınırsız Kullanıcı</li>
+                <li>500 GB Depolama</li>
+                <li>7/24 Telefon Desteği</li>
+                <li>Tüm Özellikler</li>
+                <li>Özel Entegrasyon</li>
+            </ul>
+
+            <!-- Satın alma butonu -->
+            <button>Planı Seç</button>
+        </div>
+
+    </div> <!-- .fiyat-container sonu -->
+
+    <!-- DAKTİLO EFEKTİ SCRIPT'İ -->
+    <script>
+        // Değişecek metinler
+        const metinler = [
+            "Fiyatlandırma Planları",
+            "Paran yoksa sunucuyu meşgul etme"
+        ];
+
+        const baslikElementi = document.getElementById('baslik-efekt');
+        let metinSirasi = 0;   // Hangi metindeyiz? (0 veya 1)
+        let harfSirasi = 0;    // Kaçıncı harfdeyiz?
+        let siliniyor = false; // Şu an siliyor muyuz?
+        let beklemeSuresi = 2000; // Yazdıktan sonra ne kadar beklesin?
+
+        function daktiloEfekti() {
+            const suankiMetin = metinler[metinSirasi];
+
+            if (siliniyor) {
+                // Silme işlemi: Bir harf eksilt
+                baslikElementi.textContent = suankiMetin.substring(0, harfSirasi - 1);
+                harfSirasi--;
+            } else {
+                // Yazma işlemi: Bir harf ekle
+                baslikElementi.textContent = suankiMetin.substring(0, harfSirasi + 1);
+                harfSirasi++;
+            }
+
+            // Hız ayarı (Yazarken 100ms, Silerken 50ms)
+            let hiz = siliniyor ? 50 : 100;
+
+            if (!siliniyor && harfSirasi === suankiMetin.length) {
+                // Kelime bitti, bekle ve silmeye başla
+                hiz = beklemeSuresi;
+                siliniyor = true;
+            } else if (siliniyor && harfSirasi === 0) {
+                // Silme bitti, diğer kelimeye geç
+                siliniyor = false;
+                metinSirasi++;
+                if (metinSirasi === metinler.length) {
+                    metinSirasi = 0; // Başa dön
+                }
+                hiz = 500; // Yeni kelimeye başlamadan önce az bekle
+            }
+
+            setTimeout(daktiloEfekti, hiz);
+        }
+
+        // Sayfa yüklenince başlat
+        document.addEventListener('DOMContentLoaded', daktiloEfekti);
+    </script>
+</body>
+
+</html>
