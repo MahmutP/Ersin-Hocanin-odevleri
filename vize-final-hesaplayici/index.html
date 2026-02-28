@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vize ve Final Hesaplayıcı</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="card">
+        <h1>Not Hesaplayıcı</h1>
+
+        <div class="input-group">
+            <label for="vize">Vize Notu</label>
+            <input type="number" id="vize" placeholder="0-100 arası" min="0" max="100">
+        </div>
+
+        <div class="input-group">
+            <label for="final">Final Notu</label>
+            <input type="number" id="final" placeholder="0-100 arası" min="0" max="100">
+        </div>
+
+        <button id="hesaplaBtn">Hesapla</button>
+
+        <div id="sonucAlani" class="result-area">
+            <!-- Sonuç buraya yazdırılacak -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
