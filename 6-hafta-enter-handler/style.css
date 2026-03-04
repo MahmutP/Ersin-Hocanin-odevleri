@@ -1,0 +1,110 @@
+body {
+    background: linear-gradient(135deg, #153677, #4e085f);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kapsayici {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.giris-alani {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+input {
+    flex: 1; /* Kalan boşluğu tamamen kapla */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    background: #ff5945;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d44230;
+}
+
+ul {
+    list-style: none; /* Varsayılan noktaları kaldır */
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    font-size: 18px;
+    padding: 15px 20px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between; /* Yazı solda, çöp kutusu sağda */
+    align-items: center;
+    cursor: pointer;
+    user-select: none; /* Metnin fareyle yanlışlıkla seçilmesini engelle */
+    transition: 0.2s;
+}
+
+ul li:hover {
+    background: #f1f1f1;
+}
+
+/* Görev tamamlandığında eklenecek CSS sınıfı */
+ul li.yapildi {
+    text-decoration: line-through; /* Üstünü çiz */
+    color: #888;
+    background: #e0e0e0;
+}
+
+/* Acil Görevler İçin Özel CSS Sınıfı */
+ul li.acil {
+    background: #ffd6d6;
+}
+
+ul li.acil:hover {
+    background: #ffc2c2;
+}
+
+/* Çöp kutusu ikonu taşıyıcısı */
+ul li span {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    color: #ff5945;
+    transition: 0.2s;
+}
+
+ul li span:hover {
+    background: #ffe0dd;
+}

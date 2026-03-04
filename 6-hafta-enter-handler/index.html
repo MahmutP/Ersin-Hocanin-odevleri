@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yapılacaklar Listesi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome (Çöp kutusu ikonu için CDN linki) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="kapsayici">
+        <h2>Yapılacaklar Listesi 📝</h2>
+        
+        <div class="giris-alani">
+            <input type="text" id="veri-kutusu" placeholder="Bugün ne yapacaksın?">
+            <button onclick="elemanEkle()" id="ekle-butonu">Ekle</button>
+        </div>
+
+        <!-- Listemiz buraya dinamik olarak eklenecek -->
+        <ul id="liste">
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
