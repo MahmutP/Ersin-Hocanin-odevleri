@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <title>Yapılacaklar Listesi</title>
@@ -7,21 +8,46 @@
     <!-- Font Awesome (Çöp kutusu ikonu için CDN linki) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <div class="kapsayici">
-        <h2>Yapılacaklar Listesi 📝</h2>
-        
-        <div class="giris-alani">
-            <input type="text" id="veri-kutusu" placeholder="Bugün ne yapacaksın?">
-            <button onclick="elemanEkle()" id="ekle-butonu">Ekle</button>
-        </div>
+        <div class="icerik-alani">
+            <!-- SOl SÜTUN: Veri Girişi ve İstatistikler -->
+            <div class="sol-sutun">
+                <h2>Yapılacaklar Listesi 📝</h2>
 
-        <!-- Listemiz buraya dinamik olarak eklenecek -->
-        <ul id="liste">
-        </ul>
+                <!-- İstatistik Alanı -->
+                <div class="istatistikler" id="istatistikler" style="display: none;">
+                    <span id="toplam-gorev">Toplam: 0</span>
+                    <span id="tamamlanan-gorev">Tamamlanan: 0</span>
+                </div>
+
+                <div class="giris-alani">
+                    <input type="text" id="veri-kutusu" placeholder="Bugün ne yapacaksın?">
+                    <button onclick="elemanEkle()" id="ekle-butonu">Ekle</button>
+                </div>
+            </div>
+
+            <!-- SAĞ SÜTUN: Liste ve Sayfalama -->
+            <div class="sag-sutun">
+                <!-- Listemiz buraya dinamik olarak eklenecek -->
+                <ul id="liste">
+                </ul>
+
+                <!-- Sayfalama (Pagination) Kontrolleri -->
+                <div class="sayfalama-alani" id="sayfalama" style="display: none;">
+                    <button id="onceki-btn" onclick="sayfaDegistir(-1)"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <span id="sayfa-bilgisi">1 / 1</span>
+                    <button id="sonraki-btn" onclick="sayfaDegistir(1)"><i
+                            class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

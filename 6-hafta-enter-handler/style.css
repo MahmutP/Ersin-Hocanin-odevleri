@@ -1,110 +1,278 @@
-body {
-    background: linear-gradient(135deg, #153677, #4e085f);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* RGB Işıklandırma Efekti (Renkli Gradient ve Animasyon) */
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+    background-size: 200% 100%;
+    animation: rgbIşıklandirma 5s linear infinite;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+}
+
+@keyframes rgbIşıklandirma {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: -200% 50%;
+    }
 }
 
 .kapsayici {
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 100%;
-    max-width: 450px;
-    padding: 40px 30px;
+    max-width: 900px;
+    /* Genişletildi: İki sütun için alan açıldı */
+    padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    /* Sabit yükseklik, taşmayı engeller */
+}
+
+/* YENİ: İki Sütunlu Grid Düzeni */
+.icerik-alani {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    /* Sol taraf biraz daha dar, sağ (liste) geniş */
+    gap: 40px;
+    height: 100%;
+}
+
+.sol-sutun {
+    display: flex;
+    flex-direction: column;
+}
+
+.sag-sutun {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 40px;
 }
 
 h2 {
-    color: #333;
+    color: #fff;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    /* Başlık ile istatistikler arasına boşluk bırak */
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.istatistikler {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.istatistikler span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .giris-alani {
     display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
+    flex-direction: column;
+    /* Input ve Buton alt alta olsun */
+    gap: 15px;
+    margin-bottom: 25px;
+    margin-top: 20px;
 }
 
 input {
-    flex: 1; /* Kalan boşluğu tamamen kapla */
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 30px;
+    width: 100%;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 15px;
     outline: none;
     font-size: 16px;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-button {
-    padding: 15px 30px;
+input:focus {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button#ekle-butonu {
+    width: 100%;
+    /* Sütunda tam genişlik */
+    padding: 18px 30px;
     border: none;
-    background: #ff5945;
+    background: linear-gradient(135deg, #ff6b6b, #ee5253);
     color: white;
-    font-weight: bold;
-    border-radius: 30px;
+    font-weight: 600;
+    border-radius: 15px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(238, 82, 83, 0.4);
 }
 
-button:hover {
-    background: #d44230;
+button#ekle-butonu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(238, 82, 83, 0.6);
+}
+
+button#ekle-butonu:active {
+    transform: translateY(1px);
 }
 
 ul {
-    list-style: none; /* Varsayılan noktaları kaldır */
-    padding: 0;
-    margin: 0;
+    list-style: none;
+    flex: 1;
+    /* Geri kalan boşluğu kaplar, sayfalamayı alta iter */
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 ul li {
-    font-size: 18px;
+    font-size: 16px;
     padding: 15px 20px;
-    background: #f9f9f9;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
     display: flex;
-    justify-content: space-between; /* Yazı solda, çöp kutusu sağda */
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    user-select: none; /* Metnin fareyle yanlışlıkla seçilmesini engelle */
-    transition: 0.2s;
+    user-select: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.3s ease;
+    gap: 15px;
+    /* Metin ve silme butonu arasına boşluk bırak */
+}
+
+/* Görev metninin yer aldığı asıl span */
+ul li>span:first-child {
+    flex: 1;
+    /* Mevcut alanı tamamen doldur */
+    white-space: nowrap;
+    /* Metni alt satıra düşürme */
+    overflow: hidden;
+    /* Taşan kısmı gizle */
+    text-overflow: ellipsis;
+    /* Taşan kısmın sonuna ... (üç nokta) ekle */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 ul li:hover {
-    background: #f1f1f1;
+    transform: translateX(5px);
+    background: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Görev tamamlandığında eklenecek CSS sınıfı */
 ul li.yapildi {
-    text-decoration: line-through; /* Üstünü çiz */
-    color: #888;
-    background: #e0e0e0;
+    text-decoration: line-through;
+    color: #a4b0be;
+    background: rgba(255, 255, 255, 0.6);
 }
 
-/* Acil Görevler İçin Özel CSS Sınıfı */
 ul li.acil {
-    background: #ffd6d6;
+    background: #ffeaa7;
+    border-left: 5px solid #fdcb6e;
 }
 
-ul li.acil:hover {
-    background: #ffc2c2;
+ul li.yapildi.acil {
+    background: rgba(255, 234, 167, 0.6);
+    border-left: 5px solid rgba(253, 203, 110, 0.6);
 }
 
-/* Çöp kutusu ikonu taşıyıcısı */
 ul li span {
     width: 35px;
     height: 35px;
-    line-height: 35px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-    color: #ff5945;
-    transition: 0.2s;
+    color: #ff6b6b;
+    transition: all 0.2s ease;
+    background: rgba(255, 107, 107, 0.1);
 }
 
 ul li span:hover {
-    background: #ffe0dd;
+    background: #ff6b6b;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Sayfalama Kontrolleri */
+.sayfalama-alani {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sayfalama-alani button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sayfalama-alani button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.sayfalama-alani button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#sayfa-bilgisi {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
 }
