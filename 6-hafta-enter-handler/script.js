@@ -3,7 +3,7 @@ const girisKutusu = document.getElementById("veri-kutusu");
 const listeKutusu = document.getElementById("liste");
 
 // ÖDEV: Enter Tuşu Desteği
-girisKutusu.addEventListener("keyup", function(event) {
+girisKutusu.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         elemanEkle();
     }
@@ -17,17 +17,17 @@ function elemanEkle() {
     } else {
         // A. YARATMA: Yeni bir <li> elementi oluştur
         let li = document.createElement("li");
-        
+
         // B. İÇERİK: İçeriğini input'tan al
         let gorevMetni = girisKutusu.value.trim();
         li.innerHTML = gorevMetni;
-        
+
         // ÖDEV: Öncelik Rengi (Şartlı Biçimlendirme)
         // Eğer girilen metinde "Acil" veya "acil" kelimesi geçiyorsa
         if (gorevMetni.toLowerCase().includes("acil")) {
             li.classList.add("acil");
         }
-        
+
         // C. MONTAJ: Listeye (<ul> içine) yerleştir
         listeKutusu.appendChild(li);
 
@@ -36,7 +36,7 @@ function elemanEkle() {
         span.innerHTML = '<i class="fa-solid fa-trash"></i>'; // FontAwesome ikonu
         li.appendChild(span); // Span'i li'nin içine ekle
     }
-    
+
     // TEMİZLİK: İşlem bitince input kutusunu sıfırla
     girisKutusu.value = "";
     // İmleci tekrar kutuya odakla (Kullanıcı kolaylığı)
@@ -46,8 +46,8 @@ function elemanEkle() {
 // 3. LİSTE OLAYLARI (Tıklama ve Silme İşlemleri)
 // Event Delegation (Olay Yetkilendirme): Her LI için ayrı fonksiyon yazmak yerine,
 // UL'ye bir kulaklık takıp "İçindeki neye tıklanırsa tıklandığı anla" diyoruz.
-listeKutusu.addEventListener("click", function(olay) {
-    
+listeKutusu.addEventListener("click", function (olay) {
+
     // EĞER tıklanan şey bir LI (Görevin kendisine) ise:
     if (olay.target.tagName === "LI") {
         // classList.toggle() metodu UI etkileşimlerinde tam bir hayat kurtarıcıdır. 
@@ -56,7 +56,7 @@ listeKutusu.addEventListener("click", function(olay) {
         // Bu class tetiklendiğinde CSS dosyamızdaki üstü çizili ve gri arka planlı stile denk gelir.
         olay.target.classList.toggle("yapildi");
     }
-    
+
     // EĞER tıklanan şey bir SPAN veya İKON (I) ise (Çöp kutusuna tıklandıysa):
     // Neden tek bir kontrol değil de hem SPAN hem de I'yı ("||" operatörüyle) kontrol ediyoruz? 
     // Çünkü eklediğimiz FontAwesome ikonu (<i> etiketi), taşıyıcı bir <span> etiketinin içine gömülüdür.
@@ -64,7 +64,7 @@ listeKutusu.addEventListener("click", function(olay) {
     // ikonun milimetrik yanındaki boşluğa tıklarsa olay "SPAN" üzerinden tetiklenir. 
     // Her iki ihtimali de yakalayarak kullanıcının canını sıkacak UI (Kullanıcı Arayüzü) tıklama hatalarını önlemiş oluyoruz.
     else if (olay.target.tagName === "SPAN" || olay.target.tagName === "I") {
-        
+
         // closest('li') metodu DOM ağacında yukarı doğru tırmanarak arama yapan harika bir DOM fonksiyonudur.
         // Neden basitçe parentNode (Bir üst ebeveyni seç) komutunu kullanmadık? 
         // Çünkü eğer "I" etiketine tıkladıysak onun birinci derece ebeveyni "SPAN"dir. Silersek sadece ikonu sileriz, liste maddesi kalır.
@@ -72,6 +72,6 @@ listeKutusu.addEventListener("click", function(olay) {
         // Doğrudan hedefi yani kapsayıcı "li" etiketini bulur ve içindeki her şeyi remove() komutuyla DOM'dan ve hafızadan tamamen kazır.
         olay.target.closest("li").remove();
     }
-    
-// Sondaki 'false' parametresi ise Event Bubbling (Olayların içten dışa doğru tetiklenme sırası) durumunu kontrol eder. Varsayılan davranış budur.
+
+    // Sondaki 'false' parametresi ise Event Bubbling (Olayların içten dışa doğru tetiklenme sırası) durumunu kontrol eder. Varsayılan davranış budur.
 }, false);
