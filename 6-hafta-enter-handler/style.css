@@ -276,3 +276,325 @@ ul li span:hover {
     font-size: 16px;
     letter-spacing: 1px;
 }
+
+/* --- AĞAÇ ANİMASYONU --- */
+.agac-kapsayici {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    margin-top: 20px;
+    border-top: 3px solid rgba(139, 69, 19, 0.6);
+    /* Toprak/Zemin Çizgisi */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Ağacın tabanı zeminde olsun */
+    overflow: visible;
+}
+
+.agac-govde {
+    background: linear-gradient(90deg, #5c4033, #8b4513);
+    border-radius: 5px 5px 0 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 0px;
+    height: 0px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ağacın Büyüme Aşamaları */
+.agac-govde.evre-0 {
+    width: 0px;
+    height: 0px;
+}
+
+.agac-govde.evre-1 {
+    width: 10px;
+    height: 40px;
+    /* Filiz */
+}
+
+.agac-govde.evre-2 {
+    width: 15px;
+    height: 80px;
+    /* Fidan */
+}
+
+.agac-govde.evre-3 {
+    width: 25px;
+    height: 180px;
+    /* Yetişkin Ağaç */
+    border-radius: 10px 10px 0 0;
+}
+
+/* Yapraklar Kapsayıcısı */
+.agac-yapraklari {
+    position: absolute;
+    bottom: 80px;
+    /* Gövdenin üzerinden başlasın */
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+    /* Mouse ile seçilmeyi engelle */
+    z-index: 1;
+}
+
+/* Tekil Yaprak/Dal Stili */
+.yaprak {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, #4caf50, #2e7d32);
+    border-radius: 50% 50% 0 50%;
+    /* Yaprak Şekli (Damla) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+    transform: scale(0);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.2) rotate(45deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+}
+/* --- ADAM ASMACA EKLENTİSİ --- */
+.agac-dali {
+    position: absolute;
+    top: 40px;
+    right: -70px; /* Sağa doğru uzanan dal */
+    width: 0px; /* Başlangıçta 0 */
+    height: 12px;
+    background: linear-gradient(90deg, #5c4033, #8b4513);
+    border-radius: 0 5px 5px 0;
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+.agac-dali.goster {
+    width: 90px;
+}
+
+/* Adam Asmaca Ana Taşıyıcı */
+.adam-asmaca {
+    position: absolute;
+    right: 15px; /* Dalın ucuna yakın */
+    top: 12px; /* Dalın altından sarksın */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.adam-asmaca.goster {
+    opacity: 1;
+}
+
+/* Tüm asılacak parçalar başlangıçta gizli */
+.adam-asmaca .parca {
+    display: none;
+    background: #e74c3c;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.adam-asmaca .goster-parca {
+    display: block !important;
+    animation: dropDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes dropDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.adam-asmaca .ip {
+    width: 3px;
+    height: 25px;
+    background: #bdc3c7;
+    box-shadow: none;
+}
+
+.adam-asmaca .kafa {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    background: transparent;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.adam-asmaca .govde-merkez {
+    position: relative;
+    width: 6px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.adam-asmaca .govde {
+    width: 6px;
+    height: 40px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.adam-asmaca .kol, .adam-asmaca .bacak {
+    position: absolute;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.adam-asmaca .kol {
+    width: 5px;
+    height: 30px;
+    top: 5px;
+    transform-origin: top center;
+}
+
+.adam-asmaca .sol-kol {
+    left: -2px;
+    transform: rotate(45deg);
+}
+
+.adam-asmaca .sag-kol {
+    right: -2px;
+    transform: rotate(-45deg);
+}
+
+.adam-asmaca .bacak {
+    width: 5px;
+    height: 35px;
+    top: 35px; /* Gövdenin alt kısmı */
+    transform-origin: top center;
+}
+
+.adam-asmaca .sol-bacak {
+    left: -2px;
+    transform: rotate(30deg);
+}
+
+.adam-asmaca .sag-bacak {
+    right: -2px;
+    transform: rotate(-30deg);
+}
+
+/* Öncelik Seçimi Inputu */
+.oncelik-secimi {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #444;
+}
+.oncelik-secimi:focus {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Görevler için Alt Düzenlemeler */
+ul li {
+    border-left: 5px solid transparent; 
+}
+
+ul li.oncelik-yuksek { border-left-color: #e74c3c; }
+ul li.oncelik-orta { border-left-color: #f39c12; }
+ul li.oncelik-dusuk { border-left-color: #2ecc71; }
+
+.gorev-sol {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.oncelik-ikonu {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+}
+
+.gorev-metni {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gorev-sag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gorev-saati {
+    font-size: 12px;
+    color: #7f8c8d;
+    background: rgba(0,0,0,0.05);
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+/* Buton Grubu (Ses + Ekle) */
+.buton-grubu {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+button#ses-butonu {
+    width: 60px;
+    padding: 18px 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button#ses-butonu:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+button#ses-butonu.dinliyor {
+    background: #e74c3c;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+button#ekle-butonu {
+    flex: 1; /* Ekle butonu kalan genişliği alsın */
+}

@@ -25,7 +25,33 @@
 
                 <div class="giris-alani">
                     <input type="text" id="veri-kutusu" placeholder="Bugün ne yapacaksın?">
+                    <select id="oncelik-secimi" class="oncelik-secimi">
+                        <option value="1">Düşük Öncelik 🍃</option>
+                        <option value="2" selected>Orta Öncelik ⚡</option>
+                        <option value="3">Yüksek Öncelik 🔥</option>
+                    </select>
                     <button onclick="elemanEkle()" id="ekle-butonu">Ekle</button>
+                </div>
+
+                <!-- Ağaç Animasyon Alanı -->
+                <div class="agac-kapsayici" id="agac-kapsayici">
+                    <div class="agac-govde" id="agac-govde">
+                        <!-- Adam Asmaca Dalı -->
+                        <div class="agac-dali" id="agac-dali">
+                            <div class="adam-asmaca" id="adam-asmaca">
+                                <div class="parca ip" id="adam-ip"></div>
+                                <div class="parca kafa" id="adam-kafa"></div>
+                                <div class="govde-merkez">
+                                    <div class="parca govde" id="adam-govde"></div>
+                                    <div class="parca kol sol-kol" id="adam-sol-kol"></div>
+                                    <div class="parca kol sag-kol" id="adam-sag-kol"></div>
+                                    <div class="parca bacak sol-bacak" id="adam-sol-bacak"></div>
+                                    <div class="parca bacak sag-bacak" id="adam-sag-bacak"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="agac-yapraklari" id="agac-yapraklari"></div>
                 </div>
             </div>
 
