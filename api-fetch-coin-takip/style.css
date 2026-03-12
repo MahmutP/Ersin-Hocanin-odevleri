@@ -1,0 +1,399 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --accent: #38bdf8;
+    --accent-hover: #0284c7;
+    --success: #2ecd71;
+    --danger: #e74c3c;
+    --bitcoin: #f7931a;
+    --ethereum: #627eea;
+    --dogecoin: #c2a633;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px; /* genişletildi */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.crypto-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 30px 25px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+}
+
+.card-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+}
+
+.card-header p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Grafik Alanı Stilleri */
+.chart-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.coin-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.coin-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.coin-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+}
+
+.coin-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.chart-container {
+    height: 250px;
+    width: 100%;
+    position: relative;
+}
+
+/* Liste Stilleri */
+.crypto-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.crypto-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.crypto-item:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.crypto-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.crypto-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.icon-bitcoin { color: var(--bitcoin); filter: drop-shadow(0 0 5px rgba(247, 147, 26, 0.5)); }
+.icon-ethereum { color: var(--ethereum); filter: drop-shadow(0 0 5px rgba(98, 126, 234, 0.5)); }
+.icon-dogecoin { color: var(--dogecoin); filter: drop-shadow(0 0 5px rgba(194, 166, 51, 0.5)); }
+
+.crypto-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.crypto-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+.price-high {
+    color: var(--success);
+    text-shadow: 0 0 10px rgba(46, 205, 113, 0.3);
+}
+
+.price-low {
+    color: var(--danger);
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Buton Stilleri */
+.refresh-btn {
+    width: 100%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* new layout for trader page */
+.trader-card {
+    display: flex;
+    flex-direction: column;
+}
+
+@media(min-width: 768px) {
+    .trader-card {
+        flex-direction: row;
+    }
+}
+
+.sidebar {
+    flex: 0 0 250px;
+    padding: 20px;
+    border-right: 1px solid var(--card-border);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.search-wrap {
+    margin-bottom: 15px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* coin list distinct from price list */
+.coin-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.coin-entry {
+    cursor: pointer;
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.coin-entry:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.coin-entry.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.trade-actions {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.trade-btn {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.trade-btn.buy {
+    background: var(--success);
+    color: #fff;
+}
+
+.trade-btn.buy:hover {
+    background: #27b166;
+}
+
+.trade-btn.sell {
+    background: var(--danger);
+    color: #fff;
+}
+
+.trade-btn.sell:hover {
+    background: #c0392b;
+}
+
+/* error messaging */
+.error-msg {
+    background: var(--danger);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.error-msg button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+.error-msg button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.auto-refresh-wrap {
+    margin: 15px 0;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+.auto-refresh input {
+    margin-right: 6px;
+    transform: scale(1.1);
+    vertical-align: middle;
+}
+
+
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.refresh-btn:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+    transform: translateY(-2px);
+}
+
+.refresh-btn:active {
+    transform: translateY(0);
+}
+
+.loading-state {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.spin {
+    animation: spin-anim 1s linear infinite;
+}
+
+@keyframes spin-anim {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    .crypto-card {
+        padding: 20px 15px;
+    }
+    .chart-container {
+        height: 200px;
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kripto Trader - API Fetch Coin List</title>
+    <meta name="description" content="CoinGecko liste endpointsi kullanılarak oluşturulmuş modern trader arayüzü.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js Kütüphanesi -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="trader-card">
+            <!-- solda arama ve coin listesi -->
+            <aside class="sidebar">
+                <div class="search-wrap">
+                    <input type="text" id="search-input" class="search-input" placeholder="Coin ara..." autocomplete="off">
+                </div>
+                <ul id="coin-list" class="coin-list">
+                    <li class="loading-state">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Yükleniyor...
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- sağda grafik ve detaylar -->
+            <section class="main-content">
+                <div id="error-msg" class="error-msg" style="display:none;"></div>
+                <div class="card-header">
+                    <i class="fa-solid fa-chart-line header-icon"></i>
+                    <h1>Kripto Trader</h1>
+                    <p>Seçilen Para Birimine Göre Fiyat & Grafik</p>
+                </div>
+                
+                <div class="chart-section">
+                    <div class="chart-container">
+                        <canvas id="cryptoChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <ul id="crypto-list" class="crypto-list">
+                        <li class="loading-state">
+                            <i class="fa-solid fa-spinner fa-spin"></i> Veriler Yükleniyor...
+                        </li>
+                    </ul>
+
+                    <div class="trade-actions">
+                        <button class="trade-btn buy"><i class="fa-solid fa-cart-plus"></i> Al</button>
+                        <button class="trade-btn sell"><i class="fa-solid fa-coins"></i> Sat</button>
+                    </div>
+
+                    <div class="auto-refresh-wrap">
+                        <label class="auto-refresh">
+                            <input type="checkbox" id="auto-refresh-checkbox">
+                            Otomatik Yenile
+                        </label>
+                    </div>
+
+                    <button id="refresh-btn" class="refresh-btn">
+                        <i class="fa-solid fa-rotate-right" id="refresh-icon"></i> 
+                        <span>Grafikleri Yenile</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
