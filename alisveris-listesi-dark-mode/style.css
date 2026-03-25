@@ -1,0 +1,334 @@
+/* ===== GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ===== CSS DEĞİŞKENLERİ (LIGHT TEMA) ===== */
+:root {
+    --bg-main: #fdf6e3;
+    --bg-container: #ffffff;
+    --bg-item: #f8f9fa;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --accent: #e67e22;
+    --accent-hover: #d35400;
+    --danger: #e74c3c;
+    --danger-hover: #c0392b;
+    --nuke: #8e44ad;
+    --nuke-hover: #6c3483;
+    --border: #dfe6e9;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --shadow-strong: rgba(0, 0, 0, 0.15);
+    --item-shadow: rgba(0, 0, 0, 0.04);
+    --transition-speed: 0.35s;
+}
+
+/* ===== DARK TEMA ===== */
+body.dark-theme {
+    --bg-main: #1a1a2e;
+    --bg-container: #16213e;
+    --bg-item: #0f3460;
+    --text-primary: #eaeaea;
+    --text-secondary: #b2bec3;
+    --accent: #e67e22;
+    --accent-hover: #f39c12;
+    --danger: #e74c3c;
+    --danger-hover: #ff6b6b;
+    --nuke: #a855f7;
+    --nuke-hover: #c084fc;
+    --border: #2d3a5e;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-strong: rgba(0, 0, 0, 0.5);
+    --item-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* ===== GENEL RESET & BODY ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    font-family: 'Inter', 'Verdana', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 60px;
+    transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease;
+    color: var(--text-primary);
+}
+
+/* ===== TEMA BUTONU (Sağ Üst Köşe) ===== */
+#tema-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--bg-container);
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: all var(--transition-speed) ease;
+    z-index: 1000;
+    padding: 0;
+}
+
+#tema-btn:hover {
+    transform: rotate(25deg) scale(1.1);
+    box-shadow: 0 6px 20px var(--shadow-strong);
+}
+
+/* ===== ANA KONTEYNER ===== */
+.container {
+    background: var(--bg-container);
+    width: 450px;
+    max-width: 95vw;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px var(--shadow);
+    transition: background var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== BAŞLIK ===== */
+h2 {
+    text-align: center;
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+h2 i {
+    margin-right: 8px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ===== INPUT GRUBU ===== */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-item);
+    color: var(--text-primary);
+    transition: all var(--transition-speed) ease;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+}
+
+input::placeholder {
+    color: var(--text-secondary);
+}
+
+#ekle-btn {
+    padding: 12px 22px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+#ekle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.35);
+}
+
+#ekle-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== LİSTE ===== */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: var(--bg-item);
+    margin-bottom: 10px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px var(--item-shadow);
+    transition: all 0.25s ease;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+li span {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+li i {
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+li i:hover {
+    background: var(--danger);
+    color: white;
+    transform: scale(1.15);
+}
+
+/* ===== LİSTEYİ TEMİZLE BUTONU ===== */
+.btn-clear {
+    width: 100%;
+    background: linear-gradient(135deg, var(--danger), var(--danger-hover));
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.25s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-clear:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.35);
+}
+
+.btn-clear:active {
+    transform: translateY(0);
+}
+
+.btn-clear i {
+    margin-right: 6px;
+}
+
+/* ===== TÜM LOCALSTORAGE'I SİL BUTONU ===== */
+.btn-nuke {
+    width: 100%;
+    background: linear-gradient(135deg, var(--nuke), var(--nuke-hover));
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.25s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-nuke:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(142, 68, 173, 0.35);
+}
+
+.btn-nuke:active {
+    transform: translateY(0);
+}
+
+.btn-nuke i {
+    margin-right: 6px;
+}
+
+/* ===== BOŞ LİSTE MESAJI ===== */
+.bos-mesaj {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+    body {
+        padding-top: 80px;
+    }
+    
+    .container {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    #ekle-btn {
+        width: 100%;
+    }
+}

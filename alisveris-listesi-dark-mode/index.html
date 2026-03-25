@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akıllı Alışveriş Listesi</title>
+    <meta name="description" content="Dark mode destekli, Local Storage ile verileri hatırlayan akıllı alışveriş listesi uygulaması.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sağ üst köşede Gece/Gündüz butonu -->
+    <button id="tema-btn" onclick="temaToggle()">
+        <i id="tema-icon" class="fa-solid fa-moon"></i>
+    </button>
+
+    <div class="container">
+        <h2><i class="fa-solid fa-basket-shopping"></i> Alışveriş Listesi</h2>
+        
+        <div class="input-group">
+            <input type="text" id="urun-input" placeholder="Ne alacaksın? (Örn: Süt)">
+            <button id="ekle-btn" onclick="urunEkle()">Ekle</button>
+        </div>
+
+        <ul id="liste">
+            <!-- JS ile buraya gelecek -->
+        </ul>
+        
+        <button onclick="listeyiTemizle()" class="btn-clear" id="btn-listeyi-temizle">
+            <i class="fa-solid fa-eraser"></i> Listeyi Temizle
+        </button>
+
+        <!-- EKSTRA: Tüm localStorage'ı temizleyen buton -->
+        <button onclick="storageTamamenTemizle()" class="btn-nuke" id="btn-storage-temizle">
+            <i class="fa-solid fa-bomb"></i> Tüm LocalStorage'ı Sil
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
